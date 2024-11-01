@@ -14,6 +14,7 @@ const QuestionForm = () => {
         if (parseInt(result) === firstNumber * secondNumber) {
             alert("Jawaban benar")
             clear()
+            setResult("")
         } else {
             alert("Jawaban salah")
         }
