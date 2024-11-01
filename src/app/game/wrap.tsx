@@ -1,7 +1,7 @@
 "use client"
 import dynamic from "next/dynamic"
-import { DndContext } from "@dnd-kit/core"
-import { useEffect, useState } from "react"
+import { DndContext, DragEndEvent } from "@dnd-kit/core"
+import { useState } from "react"
 import { useStore } from "@/store/store"
 
 const Container = dynamic(() => import('./components/container'), {
@@ -30,32 +30,32 @@ const Wrap = () => {
         []
     ])
 
-    const handleDragEnd = (e: any) => {
+    const handleDragEnd = (e: DragEndEvent) => {
         if(e.over != null){
-            const checkActiveStickInContainer = totalStickInContainer.includes(e.active.id)
+            const checkActiveStickInContainer = totalStickInContainer.includes(e.active.id as string)
             if(checkActiveStickInContainer){
                 if(e.over.id == "container") return
-                const indexBucket = parseInt(e.over.id.split('-')[1])
+                const indexBucket = parseInt((e.over.id as string).split('-')[1])
                 const tempBucket = [...totalStickInBucket]
-                tempBucket[indexBucket].push(e.active.id)
+                tempBucket[indexBucket].push(e.active.id as string)
                 setTotalStickInBucket(tempBucket)
 
                 const tempContainer = [...totalStickInContainer]
-                const indexActive = tempContainer.indexOf(e.active.id)
+                const indexActive = tempContainer.indexOf(e.active.id as string)
                 tempContainer.splice(indexActive, 1)
                 setTotalStickInContainer(tempContainer)
             }else{
-                const findIndexBucket = totalStickInBucket.findIndex(a => a.includes(e.active.id))
+                const findIndexBucket = totalStickInBucket.findIndex(a => a.includes(e.active.id as string))
                 const tempBucket = [...totalStickInBucket]
-                tempBucket[findIndexBucket].splice(tempBucket[findIndexBucket].indexOf(e.active.id), 1)
+                tempBucket[findIndexBucket].splice(tempBucket[findIndexBucket].indexOf(e.active.id as string), 1)
                 setTotalStickInBucket(tempBucket)
 
                 if(e.over.id == "container"){
-                    setTotalStickInContainer([...totalStickInContainer, e.active.id])
+                    setTotalStickInContainer([...totalStickInContainer, e.active.id as string])
                 }else{
-                    const indexBucket = parseInt(e.over.id.split('-')[1])
+                    const indexBucket = parseInt((e.over.id as string).split('-')[1])
                     const tempBucket = [...totalStickInBucket]
-                    tempBucket[indexBucket].push(e.active.id)
+                    tempBucket[indexBucket].push(e.active.id as string)
                     setTotalStickInBucket(tempBucket)
                 }
             }

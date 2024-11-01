@@ -1,12 +1,12 @@
 "use client"
 
 import { useStore } from "@/store/store"
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import WheelComponent from "react-spin-game"
 import "react-spin-game/dist/index.css"
 
 const SpinWheel = () => {
-    const spinWheelref = useRef<any>(null)
+    const spinWheelref = useRef<{ handleSpin: () => void } | null>(null)
     const firstNumber = useStore(state => state.firstNumber)
     const secondNumber = useStore(state => state.secondNumber)
     const upadateFirstNumberValue = useStore(state => state.updateFirstNumberValue)
@@ -16,7 +16,9 @@ const SpinWheel = () => {
 
     const handleSpin = async () => {
         setSpinNumber((Math.floor(Math.random() * 10) + 1).toString())
-        spinWheelref.current.handleSpin()
+        if (spinWheelref.current) {
+            spinWheelref.current.handleSpin()
+        }
 
         await Promise.resolve([
             setTimeout(() => {

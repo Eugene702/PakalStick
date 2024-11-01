@@ -7,7 +7,7 @@ import dynamic from "next/dynamic"
 
 const Stick = dynamic(() => import('./stick'))
 const Container = ({ totalStick }: { totalStick: string[] }) => {
-    const { setNodeRef, isOver, over } = useDroppable({
+    const { setNodeRef, isOver } = useDroppable({
         id: "container"
     })
 
