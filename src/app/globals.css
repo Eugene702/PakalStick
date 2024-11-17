@@ -4,6 +4,6 @@
 
 @layer components{
     .btn-menu{
-        @apply bg-yellow-200 border-none text-black btn rounded-full w-full text-3xl btn-lg transform font-bold hover:scale-90
+        @apply bg-yellow-200 border-none text-black btn btn-sm rounded-full w-full transform font-bold hover:scale-90 lg:btn-lg lg:text-3xl
     }
 }

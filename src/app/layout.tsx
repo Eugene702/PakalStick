@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   },
 };
 
+const Wrap = dynamic(() => import('./wrap'))
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -16,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="lofi">
       <body>
-        {children}
+        <Wrap>
+          { children }
+        </Wrap>
       </body>
     </html>
   );

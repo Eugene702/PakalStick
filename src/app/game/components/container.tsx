@@ -17,7 +17,7 @@ const Container = ({ totalStick }: { totalStick: string[] }) => {
             width={0}
             height={0}
             alt="Container Stick"
-            className={`w-6/12 ${isOver ? 'contrast-50' : ''}`} />
+            className={`w-4/12 lg:w-8/12 ${isOver ? 'contrast-50' : ''}`} />
 
         <div className="absolute w-3/12 -top-5 left-2/4 transform -translate-x-2/4">
             <div className="grid grid-cols-3">

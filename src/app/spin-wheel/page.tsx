@@ -1,9 +1,11 @@
 import { Metadata } from "next"
 import Image from "next/image"
 import LogoUpi from '@/assets/image/logo-upi.png'
-import littleBoyMan from "@/assets/image/little_boy_man.png"
-import littleGirl from "@/assets/image/little_girl.png"
+import GrassWithviews from '@/assets/image/revision1/grass_with_views.jpg'
 import dynamic from "next/dynamic"
+import BoyPointing from '@/assets/image/revision1/boy_pointing.png'
+import GirlsPointing from '@/assets/image/revision1/girls_pointing.png'
+import "react-spin-game/dist/index.css"
 
 export const metadata: Metadata = {
     title: "Roda Putar"
@@ -13,39 +15,49 @@ const MenuButtonList = dynamic(() => import('@/components/menuButtonList'))
 const SpinWheel = dynamic(() => import('./components/spinWheel'))
 
 const page = () => {
-    return <div className="w-full h-screen bg-cover bg-bottom bg-no-repeat bg-[url('/image/plain_background_with_grass.png')] flex flex-col justify-between">
-        <div className="flex justify-between items-center p-20">
-            <h1 className="text-7xl text-gray-200 font-semibold text-center w-full">RODA PUTAR</h1>
-            <Image
-                src={LogoUpi}
-                width={0}
-                height={0}
-                sizes="100vw"
-                alt="Logo Upi"
-                className="w-3/12" />
-        </div>
-
-        <div className="grid grid-cols-4 px-10">
-            <Image
-                src={littleBoyMan}
-                width={0}
-                height={0}
-                alt="Little Boy Man"
-                sizes="100vw"
-                className="w-11/12" />
-
-            <SpinWheel />
-
-            <Image
-                src={littleGirl}
-                width={0}
-                height={0}
-                alt="Litle Girl"
-                sizes="100vw"
-                className="w-11/12" />
-
+    return <div className="relative w-full h-screen">
+        <h1 className="text-gray-50 font-bold w-fit text-3xl lg:text-7xl uppercase absolute top-4 lg:top-10 left-2/4 transform -translate-x-2/4">konsep perkalian</h1>
+        <div className="absolute right-0 bottom-[3%] w-4/12 lg:bottom-[10%]">
             <MenuButtonList />
         </div>
+
+        <div className="absolute bottom-[2%] left-[20%] transform -translate-x-[20%] -translate-y-[2%] w-3/12">
+            <section>
+                <SpinWheel />
+            </section>
+        </div>
+
+        <Image
+            src={BoyPointing}
+            width={0}
+            height={0}
+            alt="Boy Pointing"
+            sizes="100vw"
+            className="absolute left-0 bottom-0 w-2/12" />
+
+        <Image
+            src={GirlsPointing}
+            width={0}
+            height={0}
+            alt="Boy Pointing"
+            sizes="100vw"
+            className="absolute left-[50%] bottom-0 w-[18%] tranform -translate-x-[50%]" />
+
+        <Image
+            src={LogoUpi}
+            width={0}
+            height={0}
+            sizes="100vw"
+            alt="Logo UPI"
+            className="w-2/12 absolute right-5 top-4 lg:top-10 lg:right-10" />
+
+        <Image
+            src={GrassWithviews}
+            width={0}
+            height={0}
+            sizes="100vw"
+            alt="Grass With Views"
+            className="w-full h-dvh" />
     </div>
 }
 

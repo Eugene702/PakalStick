@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@dnd-kit/core": "^6.1.0",
+    "mobile-detect": "^1.4.5",
     "next": "15.0.2",
     "react": "19.0.0-rc-02c0e824-20241028",
     "react-dom": "19.0.0-rc-02c0e824-20241028",
     "react-spin-game": "^1.0.7",
     "react-wheel-of-prizes": "^1.1.0",
+    "spin-wheel-game": "^1.0.3-alpha.3",
     "zustand": "^5.0.1"
   },
   "devDependencies": {

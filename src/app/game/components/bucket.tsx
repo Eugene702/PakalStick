@@ -11,14 +11,14 @@ const Bucket = ({ index, totalStick }: { index: number, totalStick: string[] }) 
         id: `bucket-${index + 1}`
     })
 
-    return <div className="relative" ref={setNodeRef}>
+    return <div className="relative w-full" ref={setNodeRef}>
         <Image
             src={bucket}
             width={0}
             height={0}
             sizes="100vw"
             alt="Bucket"
-            className={over && over.id == `bucket-${index + 1}` ? 'contrast-50' : ''} />
+            className={over && over.id == `bucket-${index + 1}` ? 'contrast-50 w-full' : ''} />
 
         <div className="absolute w-7/12 -top-1 left-2/4 transform -translate-x-2/4">
             <div className="grid grid-cols-3">
@@ -29,7 +29,7 @@ const Bucket = ({ index, totalStick }: { index: number, totalStick: string[] }) 
         </div>
 
         <div className="absolute left-2/4 top-2/4 transform -translate-x-2/4 -translate-y-2/4 text-center">
-            <p className="text-7xl font-semibold">{index + 2}</p>
+            <p className="text-3xl font-semibold lg:text-6xl">{index + 2}</p>
             <p>{ totalStick.length }</p>
         </div>
     </div>
